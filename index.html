@@ -7,57 +7,50 @@
             color: white;
         }
     </style>
-    <h1>HELLO DADDY!</h1>
+    <h1 id="display">HELLO DADDY!</h1>
     <script>
+
+        const display=document.getElementById("display")
 
         function randomIntInRange(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
         console.log("this is times table");
+        // display.textContent = "this is timestables"
 
         // # think of a random number and save it in 'first'
-        // first = random.randint(2,10)
         let first = randomIntInRange(2,10);
         console.log(first);
 
         // # think of another random number and save it in second
-        // second = random.randint(2,10)
         let second = randomIntInRange(2, 10);
         console.log(second);
 
 
         // # do the sum and save the answer in awnser
-        // awnser = first * second
         let answer = first * second;
         // console.log(answer);
 
         // # save the current time as start
-        // start = time.time()
         let start = new Date().getTime()
 
         // # print a blank line
-        // print ("")
         console.log ("")
 
         // # ask me the question
-        // print (str(first) + "*" + str(second))
-        console.log (first, "*", second)
+        console.log (`What is ${first} x ${second}?`)
+        display.textContent=`What is ${first} x ${second}?`
 
-        // # don't tell me the awnser until I have guessed it
-        // input("Enter key should be pressed when you have finished thinking of the awnser")
-
-        // end= time.time()
         let end = new Date().getTime()
 
         // # tell me the answer
-        // print ("The awnser is " + str(awnser))
         console.log ("the answer is ", answer)
 
         // rounded_time = round(end - start, 1)
-        // let roundedTime =
+        let roundedTime = Math.ceil(end-start)
 
         // print ("and it took you " + str( rounded_time ) + " seconds to awnswer")
-
+        console.log (`and it took you ${roundedTime} seconds to answer`)
     </script>
 </html>
