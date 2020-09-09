@@ -2,22 +2,25 @@
     <style>
         body {
             background: URL("http://www.seekgif.com/download/black-paint-splatter-wallpaper-13394");
-        }
-        h1{
             color: white;
         }
     </style>
-    <h1 id="display">HELLO DADDY!</h1>
+    <body>    
+        <h1 id="question"></h1>
+        <h2>Please click any key when you know the answer.</h2>
+        <h1 id="answer"></h1>
+    </body>  
     <script>
 
-        const display=document.getElementById("display")
+        const questionArea=document.getElementById("question")
+        const answerArea=document.getElementById("answer")
 
         function randomIntInRange(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
         console.log("this is times table");
-        // display.textContent = "this is timestables"
+        // question.textContent = "this is timestables"
 
         // # think of a random number and save it in 'first'
         let first = randomIntInRange(2,10);
@@ -40,17 +43,16 @@
 
         // # ask me the question
         console.log (`What is ${first} x ${second}?`)
-        display.textContent=`What is ${first} x ${second}?`
+        questionArea.textContent=`What is ${first} x ${second}?`
 
-        let end = new Date().getTime()
 
-        // # tell me the answer
-        console.log ("the answer is ", answer)
+        window.addEventListener("keyup", keyHandler)
 
-        // rounded_time = round(end - start, 1)
-        let roundedTime = Math.ceil(end-start)
-
-        // print ("and it took you " + str( rounded_time ) + " seconds to awnswer")
-        console.log (`and it took you ${roundedTime} seconds to answer`)
+        function keyHandler (event) {
+            let end = new Date().getTime()
+            let roundedTime = Math.ceil( (end-start)/1000 )
+            console.log("I LOVE DAD SCOOL")
+            answerArea.textContent=`${answer} - and it took you ${roundedTime} seconds to answer`
+        }
     </script>
 </html>
