@@ -6,53 +6,56 @@
         }
     </style>
     <body>    
-        <h1 id="question"></h1>
-        <h2>Please click any key when you know the answer.</h2>
-        <h1 id="answer"></h1>
+        <h1 id="top"></h1>
+        <h2 id="bottom"></h2>
     </body>  
     <script>
 
-        const questionArea=document.getElementById("question")
-        const answerArea=document.getElementById("answer")
+        const topArea=document.getElementById("top")
+        const bottomArea=document.getElementById("bottom")
+        let start
+        let answer
+        let state = 1
+
+        askQuestion()
 
         function randomIntInRange(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
-        console.log("this is times table");
-        // question.textContent = "this is timestables"
-
-        // # think of a random number and save it in 'first'
-        let first = randomIntInRange(2,10);
-        console.log(first);
-
-        // # think of another random number and save it in second
-        let second = randomIntInRange(2, 10);
-        console.log(second);
-
-
-        // # do the sum and save the answer in awnser
-        let answer = first * second;
-        // console.log(answer);
-
-        // # save the current time as start
-        let start = new Date().getTime()
-
-        // # print a blank line
-        console.log ("")
-
-        // # ask me the question
-        console.log (`What is ${first} x ${second}?`)
-        questionArea.textContent=`What is ${first} x ${second}?`
-
-
         window.addEventListener("keyup", keyHandler)
 
-        function keyHandler (event) {
+        function askQuestion(){
+            // # think of a random number and save it in 'first'
+            let first = randomIntInRange(2,10);
+            // # think of another random number and save it in second
+            let second = randomIntInRange(2, 10);
+            // # do the sum and save the answer in awnser
+            answer = first * second;
+            // # save the current time as start
+            start = new Date().getTime()
+            // # ask me the question
+            topArea.textContent=`What is ${first} x ${second}?`
+            bottomArea.textContent="Please click any key when you know the answer."
+        }
+
+        function showAnswer(){
             let end = new Date().getTime()
             let roundedTime = Math.ceil( (end-start)/1000 )
-            console.log("I LOVE DAD SCOOL")
-            answerArea.textContent=`${answer} - and it took you ${roundedTime} seconds to answer`
+            topArea.textContent=`${answer} - and it took you ${roundedTime} seconds to answer`
+            bottomArea.textContent="Please click any key when your ready to veiw the next question."
+        }
+
+        function keyHandler (event) {
+            
+            if(state===1){
+                showAnswer()
+                state=2
+            } else {
+                askQuestion()
+                state=1
+            }
+
         }
     </script>
 </html>
