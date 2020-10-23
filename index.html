@@ -7,17 +7,21 @@
             background-size: cover;
         }
     </style>
+
     <head>
         <title>Jojo's timestable</title>
     </head>
     <body>    
         <h1 id="top"></h1>
         <h2 id="bottom"></h2>
-    </body>  
+        <button id="next">Next</button>
+    </body>
+
     <script>
 
         const topArea=document.getElementById("top")
         const bottomArea=document.getElementById("bottom")
+        const nextButton=document.getElementById("next")
         let start
         let answer
         let state = 1
@@ -28,7 +32,8 @@
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
-        window.addEventListener("keyup", keyHandler)
+        window.addEventListener("keyup", nextHandler)
+        nextButton.addEventListener("click", nextHandler)
 
         function askQuestion(){
             // # think of a random number and save it in 'first'
@@ -51,16 +56,16 @@
             bottomArea.textContent="Please click any key when your ready to veiw the next question."
         }
 
-        function keyHandler (event) {
-            
+        function nextHandler (event) {
             if(state===1){
                 showAnswer()
                 state=2
             } else {
                 askQuestion()
                 state=1
-            }
-
+            }   
         }
+
+        
     </script>
 </html>
