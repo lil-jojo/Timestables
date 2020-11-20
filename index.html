@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <style>
-
         html {
             box-sizing: border-box;
             font-size: 16px;
@@ -46,10 +45,25 @@
         }
         .center {
             text-align: center;
-            border: 1px solid teal;
         }
         .center > *+* {
             margin-top: 1em;
+        }
+        #top {
+            font-size: 6em;
+        }
+        #bottom {
+            font-size: 3em;
+        }
+        #next {
+            color: palevioletred;
+            font-size: 5em;
+            border: 5px solid palevioletred;
+            border-radius: 5px;
+            background: transparent;
+            padding: 0.25em;
+            width: 80%;
+            text-decoration: none;
         }
     </style>
 
@@ -95,14 +109,14 @@
             start = new Date().getTime()
             // # ask me the question
             topArea.textContent=`What is ${first} x ${second}?`
-            bottomArea.textContent="Please click any key when you know the answer."
+            bottomArea.textContent="Click next when you know the answer."
         }
 
         function showAnswer(){
             let end = new Date().getTime()
             let roundedTime = Math.ceil( (end-start)/1000 )
-            topArea.textContent=`${answer} - and it took you ${roundedTime} seconds to answer`
-            bottomArea.textContent="Please click any key when your ready to veiw the next question."
+            topArea.textContent=`It's ${answer}. You took ${roundedTime}s`
+            bottomArea.textContent="Click next to continue."
         }
 
         function nextHandler (event) {
