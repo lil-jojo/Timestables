@@ -21,19 +21,24 @@
         }
 
         img {
-            max-width: 100%;
-            height: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            opacity: 0.5;
+            z-index: -1;
         }
 
         html {
-            background: URL("background.jpg") no-repeat center center fixed;
+            background: URL("new-background.jpg") no-repeat center center fixed;
             color: palevioletred;
             background-size: cover;
             text-shadow:               
-                -1px 1px 0 #000,
-                1px 1px 0 #000,
-                1px -1px 0 #000,
-                -1px -1px 0 #000;
+                -1px 1px 0 hotpink,
+                1px 1px 0 hotpink,
+                1px -1px 0 hotpink,
+                -1px -1px 0 hotpink;
             height: 100%;
         }
         body {
@@ -64,6 +69,7 @@
             padding: 0.25em;
             width: 80%;
             text-decoration: none;
+            outline:none;
         }
     </style>
 
@@ -71,7 +77,7 @@
         <title>Jojo's timestable</title>
     </head>
     <body>
-
+        <!-- <img src="background.jpg"> -->
         <div class="center">   
             <h1 id="top"></h1>
             <h2 id="bottom"></h2>
